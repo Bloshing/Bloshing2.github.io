@@ -4,29 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website - Emanoel Agbayani</title>
     <link rel ="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/7216930aa7.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="header">
     <div class="container">
         <nav>
-            <img src="images/logo2.png" class="logo">
-            <ul id="sidemenu">
-                <li><a href="#header">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
-            </ul>
+            <div class="header-text">
+            <h1>Hi, I'm <span>Emanoel Manibog Agbayani</span><br></h1>
+            </div>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
-        <div class="header-text">
-            <p>Machine Learning and Data Science</p>
-            <h1>Hi, I'm <span>Emanoel Agbayani</span><br></h1>
-        </div>
     </div>
 </div>
 <!-----------about--------->
@@ -43,7 +39,6 @@
                     American that was born in the Coachella Valley. I am an aspiring Data Analyst and Machine Learning
                     Engineer. Some hobbies of mine are guitar, videogames, and eating delicious food. Furthermore, I 
                     aspire to use my technical prowess in the Medical Field.</p>
-
                 <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                     <p class="tab-links" onclick="opentab('experience')">Leadership Experience</p>
@@ -172,15 +167,6 @@
                 </div>
                 <a href="images/EmanoelAgbayani_Resume_2025.pdf" download class="btn btn2">Download Resume</a>
             </div>
-            <div class="contact-right">
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="text" name="Email" placeholder="Your Email" required>
-                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                    <button type="Submit" class="btn btn2">Submit</button>
-                </form>
-                <span id="msg"></span>
-            </div>
         </div>
     </div>
     <div class="copyright">
@@ -188,53 +174,7 @@
     </div>
 </div>
 
-<script>
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
 
-    function opentab(tabname){
-        for(tablink of tablinks){
-            tablink.classList.remove("active-link");
-        }
-        for(tablink of tabcontents){
-            tablink.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
-</script>
-
-<script>
-
-    var sidemenu = document.getElementById("sidemenu");
-
-    function openmenu(){
-        sidemenu.style.right = "0";
-    }
-    function closemenu(){
-        sidemenu.style.right = "-200px";
-    }
-
-</script>
-
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwFgxh4ks5rFrgz7kn77j9uBxqniGJ_efe5BeTzRiPrWSqrPRENMiySvoOTxoAE82KPxg/exec'
-  const form = document.forms['submit-to-google-sheet']
-  const msg = document.getElementById("msg")
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => {
-        msg.innerHTML = "Message sent successfully"
-        setTimeout(function(){
-            msg.innerHTML = ""
-        }, 5000)
-        form.reset()
-      })
-      .catch(error => console.error('Error!', error.message))
-  })
-</script>
 
 
 </body>
